@@ -1,0 +1,16 @@
+extends ../../Layout/default.pug
+include ../../mixins/box.pug
+block main 
+    .container.my-3 
+        .row 
+            .col-12 
+                +boxhead(titlePage)
+        .row 
+            each topic in topics
+                .col-6.mb-3 
+                    div(class="card")
+                        img(src=`${topic.avatar}`, alt="")
+                        div(class="card-body")
+                            h5(class="card-title") #{topic.title}
+                            p(class="card-text") #{topic.description} 
+                            a(href=`/songs/${topic.slug}` class="btn btn-primary") Xem chi tiết

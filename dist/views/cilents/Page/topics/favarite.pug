@@ -1,0 +1,20 @@
+extends ../../Layout/default.pug
+include ../../mixins/box.pug
+block main 
+    .container.my-3 
+        .row 
+            .col-12 
+                +boxhead(titlePage)
+        .row 
+            each song in favarite 
+                .col-6.mb-3 
+                    div(class="song-item")
+                        div(class="inner-image")
+                            a(href=`/songs/detail/${song.infoSong.slug}`)
+                                img(src=song.infoSong.avatar)
+                        div(class="inner-content")
+                            div(class="inner-title")
+                                a(href=`/songs/detail/${song.infoSong.slug}`)  #{song.infoSong.title}
+                            div(class="inner-singer") <i class="fa-solid fa-microphone-lines"></i> #{song.infoSinger ? song.infoSinger.fullName : "Đang cập nhập"}
+                            div(class="inner-heart active" button-favarion = song.infoSong.id) <i class="fa-regular fa-heart"></i> Yeu Thich
+                            div(class="inner-time") <i class="fa-regular fa-clock"></i> Hôm nay 
